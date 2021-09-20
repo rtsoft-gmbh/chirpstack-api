@@ -2429,7 +2429,10 @@ proto.api.HTTPIntegration.toObject = function(includeInstance, msg) {
     txAckNotificationUrl: msg.getTxAckNotificationUrl(),
     integrationNotificationUrl: msg.getIntegrationNotificationUrl(),
     marshaler: msg.getMarshaler(),
-    eventEndpointUrl: msg.getEventEndpointUrl()
+    eventEndpointUrl: msg.getEventEndpointUrl(),
+    tlsCert: msg.getTlsCert(),
+    tlsKey: msg.getTlsKey(),
+    caCert: msg.getCaCert()
   };
 
   if (includeInstance) {
@@ -2515,6 +2518,18 @@ proto.api.HTTPIntegration.deserializeBinaryFromReader = function(msg, reader) {
     case 12:
       var value = /** @type {string} */ (reader.readString());
       msg.setEventEndpointUrl(value);
+      break;
+    case 13:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTlsCert(value);
+      break;
+    case 14:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTlsKey(value);
+      break;
+    case 15:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCaCert(value);
       break;
     default:
       reader.skipField();
@@ -2636,6 +2651,27 @@ proto.api.HTTPIntegration.prototype.serializeBinaryToWriter = function (writer) 
   if (f.length > 0) {
     writer.writeString(
       12,
+      f
+    );
+  }
+  f = this.getTlsCert();
+  if (f.length > 0) {
+    writer.writeString(
+      13,
+      f
+    );
+  }
+  f = this.getTlsKey();
+  if (f.length > 0) {
+    writer.writeString(
+      14,
+      f
+    );
+  }
+  f = this.getCaCert();
+  if (f.length > 0) {
+    writer.writeString(
+      15,
       f
     );
   }
@@ -2836,6 +2872,51 @@ proto.api.HTTPIntegration.prototype.getEventEndpointUrl = function() {
 /** @param {string} value  */
 proto.api.HTTPIntegration.prototype.setEventEndpointUrl = function(value) {
   jspb.Message.setField(this, 12, value);
+};
+
+
+/**
+ * optional string tls_cert = 13;
+ * @return {string}
+ */
+proto.api.HTTPIntegration.prototype.getTlsCert = function() {
+  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 13, ""));
+};
+
+
+/** @param {string} value  */
+proto.api.HTTPIntegration.prototype.setTlsCert = function(value) {
+  jspb.Message.setField(this, 13, value);
+};
+
+
+/**
+ * optional string tls_key = 14;
+ * @return {string}
+ */
+proto.api.HTTPIntegration.prototype.getTlsKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 14, ""));
+};
+
+
+/** @param {string} value  */
+proto.api.HTTPIntegration.prototype.setTlsKey = function(value) {
+  jspb.Message.setField(this, 14, value);
+};
+
+
+/**
+ * optional string ca_cert = 15;
+ * @return {string}
+ */
+proto.api.HTTPIntegration.prototype.getCaCert = function() {
+  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 15, ""));
+};
+
+
+/** @param {string} value  */
+proto.api.HTTPIntegration.prototype.setCaCert = function(value) {
+  jspb.Message.setField(this, 15, value);
 };
 
 

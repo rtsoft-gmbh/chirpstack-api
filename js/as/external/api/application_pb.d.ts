@@ -341,6 +341,15 @@ export class HTTPIntegration extends jspb.Message {
   getEventEndpointUrl(): string;
   setEventEndpointUrl(value: string): void;
 
+  getTlsCert(): string;
+  setTlsCert(value: string): void;
+
+  getTlsKey(): string;
+  setTlsKey(value: string): void;
+
+  getCaCert(): string;
+  setCaCert(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): HTTPIntegration.AsObject;
   static toObject(includeInstance: boolean, msg: HTTPIntegration): HTTPIntegration.AsObject;
@@ -365,6 +374,9 @@ export namespace HTTPIntegration {
     integrationNotificationUrl: string,
     marshaler: MarshalerMap[keyof MarshalerMap],
     eventEndpointUrl: string,
+    tlsCert: string,
+    tlsKey: string,
+    caCert: string,
   }
 }
 

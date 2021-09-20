@@ -5,10 +5,10 @@ package integration
 
 import (
 	fmt "fmt"
-	common "github.com/brocaar/chirpstack-api/go/v3/common"
-	gw "github.com/brocaar/chirpstack-api/go/v3/gw"
 	proto "github.com/golang/protobuf/proto"
 	timestamp "github.com/golang/protobuf/ptypes/timestamp"
+	common "github.com/rtsoft-gmbh/chirpstack-api/go/v3/common"
+	gw "github.com/rtsoft-gmbh/chirpstack-api/go/v3/gw"
 	math "math"
 )
 
