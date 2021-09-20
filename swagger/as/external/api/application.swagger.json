@@ -1727,6 +1727,18 @@
         "eventEndpointURL": {
           "type": "string",
           "description": "Event endpoint URL.\nThe HTTP integration will POST all events to this enpoint. The request\nwill contain a query parameters \"event\" containing the type of the\nevent."
+        },
+        "tlsCert": {
+          "type": "string",
+          "title": "TLS cert"
+        },
+        "tlsKey": {
+          "type": "string",
+          "description": "TLS key."
+        },
+        "caCert": {
+          "type": "string",
+          "description": "CA certificate."
         }
       }
     },

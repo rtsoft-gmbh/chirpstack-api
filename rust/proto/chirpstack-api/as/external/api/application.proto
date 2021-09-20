@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package api;
 
-option go_package = "github.com/brocaar/chirpstack-api/go/v3/as/external/api";
+option go_package = "github.com/rtsoft-gmbh/chirpstack-api/go/v3/as/external/api";
 option java_package = "io.chirpstack.api.as.external.api";
 option java_multiple_files = true;
 option java_outer_classname = "ApplicationProto";
@@ -505,23 +505,32 @@ message HTTPIntegration {
     // Deprecated: use event_endpoint_url.
 	string location_notification_url = 8 [json_name = "locationNotificationURL"];
 
-    // The URL to call for tx ack notifications (downlink acknowledged by gateway for transmission).
-    // Deprecated: use event_endpoint_url.
-    string tx_ack_notification_url = 9 [json_name = "txAckNotificationURL"];
+  // The URL to call for tx ack notifications (downlink acknowledged by gateway for transmission).
+  // Deprecated: use event_endpoint_url.
+  string tx_ack_notification_url = 9 [json_name = "txAckNotificationURL"];
 
-    // The URL to call for integration notifications.
-    // Deprecated: use event_endpoint_url.
-    string integration_notification_url = 10 [json_name = "integrationNotificationURL"];
+  // The URL to call for integration notifications.
+  // Deprecated: use event_endpoint_url.
+  string integration_notification_url = 10 [json_name = "integrationNotificationURL"];
 
-    // Marshaler.
-    // This defines the marshaler that is used to encode the event payload.
-    Marshaler marshaler = 11;
+  // Marshaler.
+  // This defines the marshaler that is used to encode the event payload.
+  Marshaler marshaler = 11;
 
-    // Event endpoint URL.
-    // The HTTP integration will POST all events to this enpoint. The request
-    // will contain a query parameters "event" containing the type of the
-    // event.
-    string event_endpoint_url = 12 [json_name = "eventEndpointURL"];
+  // Event endpoint URL.
+  // The HTTP integration will POST all events to this enpoint. The request
+  // will contain a query parameters "event" containing the type of the
+  // event.
+  string event_endpoint_url = 12 [json_name = "eventEndpointURL"];
+
+  // TLS cert
+  string tls_cert = 13 [json_name = "tlsCert"];
+
+  // TLS key.
+  string tls_key = 14 [json_name = "tlsKey"];
+
+  // CA certificate.
+  string ca_cert = 15 [json_name = "caCert"];
 }
 
 message CreateHTTPIntegrationRequest {
